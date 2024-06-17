@@ -11,12 +11,11 @@ const PORT = process.env.PORT || 8000;
 const app = express();
 
 const corsOptions = {
-    origin: 'https://resumewizard-front.onrender.com', // Replace with your frontend URL
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    credentials: true, // Enable credentials (cookies, authorization headers, etc.)
+    origin: 'https://resumewizard-front-1.onrender.com', // Replace with your frontend URL
+    
   };
 
-app.use(cors());
+app.use(cors(corsOptions));
 
 app.use(express.json());
 app.use('/api/user', userRoutes);
