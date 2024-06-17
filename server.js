@@ -10,12 +10,19 @@ dotenv.config({path: './config.env'});
 const PORT = process.env.PORT || 8000;
 const app = express();
 
-const corsOptions = {
-    origin: 'https://resumewizard-front-1.onrender.com', // Replace with your frontend URL
+// const corsOptions = {
+//     origin: 'https://resumewizard-front-1.onrender.com', // Replace with your frontend URL
     
-  };
+//   };
 
-app.use(cors());
+// app.use(cors());
+
+app.use((req, res, next) => {
+    res.setHeader("Access-Control-Allow-Origin", "https://resumewizard-front-1.onrender.com/");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
+
 
 app.use(express.json());
 app.use('/api/user', userRoutes);
