@@ -22,6 +22,7 @@ app.use('/api/user', userRoutes);
 app.use(express.static(path.join(__dirname, '../public')));
 
 app.get('/', (req, res) => {
+    console.log('server all working good.')
   res.send("Hello from server side. Server all working good");
 
 });
