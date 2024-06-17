@@ -16,7 +16,7 @@ const corsOptions = {
     credentials: true, // Enable credentials (cookies, authorization headers, etc.)
   };
 
-app.use(cors(corsOptions));
+app.use(cors());
 
 app.use(express.json());
 app.use('/api/user', userRoutes);
