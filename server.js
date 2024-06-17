@@ -8,6 +8,9 @@ const path = require("path");
 dotenv.config({path: './config.env'});
 const PORT = 8000;
 const app = express();
+
+app.use(cors());
+
 app.use(express.json());
 // app.use((req, res, next) => {
 //     console.log(req.url, req.body._id, req.body);
