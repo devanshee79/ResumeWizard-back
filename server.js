@@ -10,7 +10,13 @@ dotenv.config({path: './config.env'});
 const PORT = process.env.PORT || 8000;
 const app = express();
 
-app.use(cors());
+const corsOptions = {
+    origin: 'https://resumewizard-front.onrender.com/', // Replace with your frontend URL
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    credentials: true, // Enable credentials (cookies, authorization headers, etc.)
+  };
+
+app.use(cors(corsOptions));
 
 app.use(express.json());
 // app.use((req, res, next) => {
